@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'rails_12factor', group: :production
+gem 'bonsai-elasticsearch-rails', group: :production # for Bonsai plugin on heroku
 
 
 group :development, :test do
