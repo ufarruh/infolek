@@ -8,16 +8,28 @@
 
 require 'csv'
 
-Drug.destroy_all
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'drugs_a.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-  t = Drug.new
-  t.title = row['title']
-  t.description = Faker::Lorem.sentence
+# csv_text = File.read(Rails.root.join('lib', 'seeds', 'drugs_a.csv'))
+# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+# csv.each do |row|
+#   t = Drug.new
+#   t.title = row['title']
+#   t.description = Faker::Lorem.sentence
+#   #t.save
+# end
+# puts "There are now #{Drug.count} rows in the drugs table"
 
-  t.save
+300.times do
+  p = Pharmacy.new
+  p.name = Faker::Company.name
+  p.address = Faker::Address.street_address
+  p.city = Faker::Address.city
+  p.phone = Faker::PhoneNumber.cell_phone
+  p.save!
+
+  pd = Pharmacydrug.new
+  pd.drug_id = Drug.all.sample.id
+  pd.pharmacy_id = Pharmacy.all.sample.id
+  pd.save!
+
 end
-
-puts "There are now #{Drug.count} rows in the drugs table"

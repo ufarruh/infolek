@@ -1,2 +1,19 @@
 <h1><%= @drug.title %></h1>
 <p><%= @drug.description %></p>
+
+<br />
+<h1 class="text-center">Pharmacies carrying this drug</h1>
+<div class="panel-group">
+  <div class="panel panel-default">
+    <% @pharmacies.each do |pharmacy| %>
+    <div class="panel-heading">
+      <h4>Name: <em><%= pharmacy.name %></em></h4>
+    </div>
+    <div class="panel-body">
+      <p>Address: <em><%= pharmacy.address %></em></p>
+      <p>City: <em> <%= pharmacy.city %></em></p>
+      <p>Phone: <em><%= pharmacy.phone %></p></em>
+    </div>
+    <% end %>
+  </div>
+</div>

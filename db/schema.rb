@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126202627) do
+ActiveRecord::Schema.define(version: 20161126214109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 20161126202627) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["title"], name: "index_drugs_on_title", using: :btree
+  end
+
+  create_table "pharmacies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pharmacydrugs", force: :cascade do |t|
+    t.integer  "drug_id"
+    t.integer  "pharmacy_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["drug_id", "pharmacy_id"], name: "index_pharmacydrugs_on_drug_id_and_pharmacy_id", using: :btree
   end
 
 end

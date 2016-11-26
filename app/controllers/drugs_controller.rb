@@ -7,5 +7,6 @@ class DrugsController < ApplicationController
 
   def show
     @drug = Drug.find(params[:id])
+    @pharmacies = @drug.pharmacies.limit(10)
   end
 end
