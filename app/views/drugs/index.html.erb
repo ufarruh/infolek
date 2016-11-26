@@ -13,7 +13,7 @@
     <% unless params[:q].nil? %>
       <% @drugs[0..30].each do |drug| %>
 
-        <h4><%= drug.title %></h4>
+        <h4><%= link_to drug.title, drug_path(drug) %></h4>
         <p><%= "#{drug.description[0..10]}..."%></p>
         <% end %>
       <% else %>
