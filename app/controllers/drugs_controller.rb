@@ -1,8 +1,6 @@
 class DrugsController < ApplicationController
   def index
-  end
-
-  def show
-    @drug = Drug.find(params[:id])
+    @q = Drug.ransack(params[:q])
+    @drugs = @q.result
   end
 end
