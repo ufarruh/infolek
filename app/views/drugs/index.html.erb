@@ -1,15 +1,24 @@
-<h1>Search Drugs</h1>
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :title_start, placeholer: "type in drug name eg. Yodamarin" %>
-  <%= f.submit "Search.." %>
-<% end %>
-
-<% unless params[:q].nil? %>
-  <% @drugs[0..30].each do |drug| %>
-
-    <h4><%= drug.title %></h4>
-    <p><%= "#{drug.description[0..10]}..."%></p>
+<div class="center_div">
+  <div class="text-center form-group col-md-12">
+    <h1>Search Drugs</h1>
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :title_start, placeholder: "type in drug name eg. Yodamarin", class: "form-control" %>
+      <br />
+      <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
-  <% else %>
-    <h4>Some Random Stuff</h4>
-<% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+    <% unless params[:q].nil? %>
+      <% @drugs[0..30].each do |drug| %>
+
+        <h4><%= drug.title %></h4>
+        <p><%= "#{drug.description[0..10]}..."%></p>
+        <% end %>
+      <% else %>
+        <h4>Some Random Stuff</h4>
+    <% end %>
+    </div>
+  </div>
+</div>
