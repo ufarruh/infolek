@@ -13,7 +13,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rails_12factor', group: :production
 gem 'bonsai-elasticsearch-rails', group: :production # for Bonsai plugin on heroku
-
+gem 'elasticsearch-model' # for elasticsearch
+gem 'elasticsearch-rails' # for elasticsearch
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -22,6 +23,8 @@ end
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
