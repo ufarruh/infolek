@@ -14,7 +14,8 @@
       <% @drugs[0..30].each do |drug| %>
 
         <h4><%= link_to drug.title, drug_path(drug) %></h4>
-        <p><%= "#{drug.description[0..10]}..."%></p>
+        <h5><%= drug.manufacturer %></h5>
+        <p><%= drug.forma %></p>
         <% end %>
       <% else %>
         <h4>Some Random Stuff</h4>
