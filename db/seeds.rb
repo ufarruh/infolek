@@ -11,23 +11,24 @@ require 'csv'
 Drug.destroy_all
 
 
-0..48.times do |i|
-  csv_text = File.read(Rails.root.join('lib', 'seeds', "drug#{i}.csv"))
-  csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-  csv.each do |row|
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', "eapteka.csv"))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+
+csv.each do |row|
     t = Drug.new
     t.title =         row['title']
-    t.forma =          row['description']
-    t.manufacturer =  row['man']
+    t.forma =         row['forma']
+    t.manufacturer =  row['manufacturer']
+    t.description =   row['image-src']
     t.save
 
     puts "#{t.title}, #{t.manufacturer} saved"
   end
-end
 
 puts "There are now #{Drug.count} rows in the drugs table"
 
-300.times do
+30.times do
   p = Pharmacy.new
   p.name = Faker::Company.name
   p.address = Faker::Address.street_address

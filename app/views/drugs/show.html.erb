@@ -1,6 +1,6 @@
-<h1><%= @drug.title %></h1>
-<h4><%= @drug.manufacturer %></h4>
-<p><%= @drug.forma %></p>
+<h3><%= @drug.title %><em>, <%= @drug.forma %></em></h3>
+<h5><%= @drug.manufacturer %></h5>
+<%= image_tag @drug.description, size: "90x90"%>
 
 <br />
 <h1 class="text-center">Pharmacies carrying this drug</h1>
