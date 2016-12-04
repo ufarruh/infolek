@@ -8,41 +8,79 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="theme.scss" rel="stylesheet">
+    <link href="dropzone.scss" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="css" href="js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <link rel="stylesheet" type="css" href="js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.1.5" media="screen" />
   </head>
 
   <body>
 
-    <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" role="navigation">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">InfoLek</a>
+
+    <a href="index.html" class="navbar-brand ">
+      <span class="logo"><strong>classified</strong><span class="handwriting">ads</span><br />
+      <small >a minimalist theme built with bootstrap </small></span>
+    </a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Pharmacy</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Blog</a></li>
-        <li><%= link_to "#{Drug.all.count} drugs in DB", "#" %> </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav navbar-right visible-xs">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="my_account.html">Login</a></li>
+  <li><a href="register.html">Register</a></li>
+  <li><a href="listings.html">Listings</a></li>
+  <li><a href="account_dashboard.html">My account</a></li>
+  <li><a href="account_ad_create.html">Post an ad</a></li>
+</ul>
+<div class="nav navbar-nav navbar-right hidden-xs">
+<div class="row">
+<div class="pull-right">
+    <a data-toggle="modal" data-target="#modalLogin"  href="#">Login</a> |
+    <a href="register.html">Register</a> |
+    <a href="listings.html">Listings</a> |
+    <a href="account_dashboard.html">My account</a>
+    <a href="account_ad_create.html" class="btn btn-warning post-ad-btn">Post an ad</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 </nav>
-
 
 
     <div class="container">
       <%= yield %>
     </div>
+
+    <!-- <div class="footer" id="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-4 col-xs-12">
+              <p><strong>&copy; Bootstrap Classifieds 2014</strong></p>
+              <p>All rights reserved</p>
+            </div>
+
+            <div class="col-sm-8 col-xs-12">
+              <p class="footer-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="typography.html">Typography</a>
+                <a href="terms.html">Terms and Conditions</a>
+                <a href="contact.html">Contact Us</a>
+              </p>
+            </div>
+        </div>
+      </div>
+    </div> -->
+
   </body>
 </html>
