@@ -1,0 +1,54 @@
+
+<% unless params[:q].nil? %>
+  <% @drugs[0..30].each do |drug| %>
+  <div class="row  listing-row">
+
+    <div class="col-sm-2">
+      <!-- <a href="details.html" class="thumbnail" ><img alt="176 * 120"></a> -->
+      <%= image_tag drug.description, size: "90x76", class: "thumbnail"%>
+    </div>
+
+    <div class="col-sm-10">
+      <!-- <h3><a class=""  href="details.html">Renault Clio Dynamique 16v 1.2 51 plate - <strong>&pound;5,000</strong></a></h3> -->
+      <h3><%= link_to "#{drug.title}, #{drug.forma} ", drug_path(drug), class: "" %></h3>
+      <!-- <p class="muted">Located in <strong>Richmond, London</strong></p> -->
+      <p class="muted"><%= drug.manufacturer %></p>
+      <p class="muted">Posted Feb 05, 2014 to <a href="#" class="underline">Cars, Vans & Motorbikes</a></p>
+      <p>Excellent Condition. Displacement: 2,900 cc Power Output: 250 bhp Drivetrain: 2-WD  Second hand car for sale – 7377790212 Available car – beat – blue color, Honda city –white /black Indica ecs – white Alto – white Nano – red /white...</p>
+      <p class="ad-description">
+      <strong>2006</strong> |
+
+      <strong>98,000 miles</strong> |
+
+      <strong>2,696 cc</strong> |
+
+      <strong>Diesel</strong>
+      </p>
+
+      <p>
+      <span class="classified_links pull-right">
+      <a class="link-info underline" href="#">Share</a>&nbsp;
+      <a class="link-info underline" href="#">Add to favorites</a>
+      &nbsp;<a class="link-info underline" href="details.html">Details</a>&nbsp;
+      &nbsp;<a class="link-info underline" href="#">Contact</a>
+      </span>
+      </p>
+    </div>
+  </div>
+
+
+
+<br />
+<br />
+
+
+
+
+
+
+
+
+      <% end %>
+    <% else %>
+      <h4>Some Random Stuff</h4>
+  <% end %>

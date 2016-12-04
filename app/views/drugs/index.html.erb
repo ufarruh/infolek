@@ -17,25 +17,6 @@
   </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-9">
-    <% unless params[:q].nil? %>
-    <div class="panel panel-default panel-transparent">
-      <% @drugs[0..30].each do |drug| %>
-      <div class="panel-body">
-        <%= image_tag drug.description, size: "100x90"%>
-        <div class="product-info pull-right">
-          <h4><%= link_to "#{drug.title}, #{drug.forma} ", drug_path(drug) %></h4>
-          <h5><%= drug.manufacturer %></h5>
+  <%= render "results" %>
 
-        </div>
-      </div>
-        <hr />
-        <% end %>
-    </div>
-      <% else %>
-        <h4>Some Random Stuff</h4>
-    <% end %>
-    </div>
-  </div>
 </div>
